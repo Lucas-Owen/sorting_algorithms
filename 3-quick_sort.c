@@ -10,13 +10,13 @@
  * @stop: Stop index
  * @size: Size of the array (for printing)
  */
-void partition(int *array, long start, long stop, size_t size)
+void partition(int *array, long start, long stop, long size)
 {
 	long pivot = stop;
 	long i = start, j;
 	int temp;
 
-	if (stop <= start)
+	if (stop <= start || stop >= size)
 		return;
 
 	for (j = start; j < pivot; j++)
