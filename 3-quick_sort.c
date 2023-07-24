@@ -13,26 +13,24 @@
 void partition(int *array, long start, long stop, size_t size)
 {
 	long pivot = stop;
-	long i = start, j = start;
+	long i = start, j;
 	int temp;
 
 	if (stop <= start)
 		return;
-	while (array[i] < array[pivot] && i < pivot)
-		i++;
-	j = i + 1;
-	while (j <= stop)
+
+	for (j = start; j < pivot; j++)
 	{
-		while (array[i] < array[pivot] && i < pivot)
-			i++;
-		while (array[j] >= array[pivot] && j <= stop)
-			j++;
-		if (j <= stop)
+		if (array[j] < array[pivot])
 		{
-			temp = array[j];
-			array[j] = array[i];
-			array[i] = temp;
-			print_array(array, size);
+			if (i != j)
+			{
+				temp = array[j];
+				array[j] = array[i];
+				array[i] = temp;
+				print_array(array, size);
+			}
+			i++;
 		}
 	}
 	if (array[i] > array[pivot])
