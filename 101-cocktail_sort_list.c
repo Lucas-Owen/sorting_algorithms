@@ -2,13 +2,13 @@
 #include "sort.h"
 
 /**
- * swap - swap two nodes of a doubly linked list
+ * swap2 - swap2 two nodes of a doubly linked list
  * @first: The first node
  * @second: The second node
  * @head: Holds the address of the head
  * Return: void
  */
-void swap(listint_t *first, listint_t *second, listint_t **head)
+void swap2(listint_t *first, listint_t *second, listint_t **head)
 {
 	listint_t *prevFirst = first->prev;
 	listint_t *nextSecond = second->next;
@@ -61,12 +61,12 @@ void swap(listint_t *first, listint_t *second, listint_t **head)
  * @list: Head of the linked list
  * Returns: void (the linked list is sorted in-place)
  */
- void cocktail_sort_list(listint_t **list)
+void cocktail_sort_list(listint_t **list)
 {
 	listint_t *start = NULL, *stop = NULL, *curr;
 	int swapped = 0;
 
-	if (list == NULL || *list == NULL || (*list)->next)
+	if (list == NULL || *list == NULL || !(*list)->next)
 		return;
 	curr = (*list);
 	do {
@@ -74,7 +74,7 @@ void swap(listint_t *first, listint_t *second, listint_t **head)
 		{
 			if (curr->n > curr->next->n)
 			{
-				swap(curr, curr->next, list);
+				swap2(curr, curr->next, list);
 				swapped = 1;
 				print_list(*list);
 			}
@@ -83,14 +83,14 @@ void swap(listint_t *first, listint_t *second, listint_t **head)
 		}
 		if (!swapped)
 			return;
-		stop = (stop == NULL ? curr: stop->prev);
+		stop = (stop == NULL ? curr : stop->prev);
 		curr = stop;
 		while (curr->prev && curr != start)
 		{
 			if (curr->prev->n > curr->n)
 			{
-				swap(curr->prev, curr, list);
-				print_list(list);
+				swap2(curr->prev, curr, list);
+				print_list(*list);
 			}
 			else
 				curr = curr->prev;
