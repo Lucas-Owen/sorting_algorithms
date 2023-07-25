@@ -56,18 +56,21 @@ void swap3(deck_node_t *first, deck_node_t *second, deck_node_t **head)
 /**
  * cardValue - Returns the value of a card
  * ACE has 0 while KING has 13
+ *
+ * @card: The card
+ * Return: value
  */
 int cardValue(const card_t *card)
 {
 	if (strcmp(card->value, "King") == 0)
-		return 13;
+		return (13);
 	if (strcmp(card->value, "Queen") == 0)
-		return 12;
+		return (12);
 	if (strcmp(card->value, "Jack") == 0)
-		return 11;
+		return (11);
 	if (strcmp(card->value, "Ace") == 0)
-		return 0;
-	return atoi(card->value);
+		return (0);
+	return (atoi(card->value));
 }
 
 /**
