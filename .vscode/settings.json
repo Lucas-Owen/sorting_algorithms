@@ -1,5 +1,9 @@
 {
     "files.eol": "\n",
     "editor.insertSpaces": false,
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "files.associations": {
+        "*.rmd": "markdown",
+        "stdlib.h": "c"
+    }
 }
