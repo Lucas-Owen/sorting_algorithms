@@ -16,6 +16,8 @@ void counting_sort(int *array, size_t size)
 	int *counting_array;
 	int i, j, k, max = -1;
 
+	if (size <= 1 || !array)
+		return;
 	for (i = 0; i < (long) size; i++)
 	{
 		if (array[i] > max)
