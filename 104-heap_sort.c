@@ -19,6 +19,7 @@ void swapInt(int *a, int *b)
  * (the array is treated as a binary tree)
  *
  * @array: The array
+ * @start: Start index of creating the max heap
  * @size: Size of the unsorted portion of the array
  * @actualSize: Size of the array (for printing)
  * Return: int - index of greater sibling, -1 when past the array size
@@ -28,11 +29,11 @@ int sift_down(int *array, int start, long size, size_t actualSize)
 	int i, j, k;
 
 	if (start >= size)
-		return -1;
+		return (-1);
 	i = sift_down(array, 2 * start + 1, size, actualSize);
 	j = sift_down(array, 2 * start + 2, size, actualSize);
 	if (i == -1)
-		return start;
+		return (start);
 	else if (j == -1)
 		k = i;
 	else
@@ -43,7 +44,7 @@ int sift_down(int *array, int start, long size, size_t actualSize)
 		print_array(array, actualSize);
 		sift_down(array, start, size, actualSize);
 	}
-	return start;
+	return (start);
 }
 
 /**
