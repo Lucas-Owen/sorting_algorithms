@@ -4,6 +4,7 @@
     "files.insertFinalNewline": true,
     "files.associations": {
         "*.rmd": "markdown",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "array": "c"
     }
 }
