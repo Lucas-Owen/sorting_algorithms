@@ -1,0 +1,62 @@
+#include <stddef.h>
+#include "sort.h"
+
+/**
+ * partitionHoare - Uses the Hoare partioning scheme in sorting sections
+ * of an array in-place
+ *
+ * @array: The array of integers
+ * @start: Start index
+ * @stop: Stop index
+ * @size: Size of the array (for printing)
+ */
+void partitionHoare(int *array, long start, long stop, long size)
+{
+	long pivot = stop;
+	long i = start, j;
+	int temp;
+
+	if (stop <= start || stop >= size)
+		return;
+
+	for (j = start; j < pivot; j++)
+	{
+		if (array[j] < array[pivot])
+		{
+			if (i != j)
+			{
+				temp = array[j];
+				array[j] = array[i];
+				array[i] = temp;
+				print_array(array, size);
+			}
+			i++;
+		}
+	}
+	if (array[i] > array[pivot])
+	{
+		temp = array[i];
+		array[i] = array[pivot];
+		array[pivot] = temp;
+		print_array(array, size);
+		pivot = i;
+	}
+
+	partitionHoare(array, start, pivot - 1, size);
+	partitionHoare(array, pivot + 1, stop, size);
+}
+
+/**
+ * quick_sort_hoare - This is a function that sorts an array of integers
+ * in ascending order using the quick sort algorithm
+ *
+ * The array is printed each time a swap occurs
+ *
+ * @array: Input array of integers
+ * @size: Size of the array of integers
+ * Returns: void (the array is sorted in-place)
+ */
+void quick_sort_hoare(int *array, size_t size)
+{
+	partitionHoare(array, 0, size - 1, size);
+}
