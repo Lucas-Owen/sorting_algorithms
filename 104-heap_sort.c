@@ -38,7 +38,6 @@ void heapify(int *array, long start, long size, long actualSize)
 		print_array(array, actualSize);
 		heapify(array, i, size, actualSize);
 	}
-	return;
 }
 
 /**
@@ -64,7 +63,7 @@ void sift_down(int *array, long size, long actualSize)
 		leftChild = rightChild - 1;
 	else
 		rightChild = leftChild + 1;
-	for (; leftChild > 0; leftChild -= 2, rightChild -=2)
+	for (; leftChild > 0; leftChild -= 2, rightChild -= 2)
 	{
 		if (rightChild < size)
 			k = (array[leftChild] > array[rightChild] ? leftChild : rightChild);
