@@ -50,7 +50,7 @@ int **allocate_array(size_t m, size_t size)
 
 	if (!count_array)
 		return (NULL);
-	for (i = 0; i < size; i++)
+	for (i = 0; i < m; i++)
 	{
 		count_array[i] = malloc(sizeof(int) * size);
 		if (!count_array[i])
@@ -60,6 +60,7 @@ int **allocate_array(size_t m, size_t size)
 				i--;
 				free(count_array[i]);
 			}
+			free(count_array);
 			return (NULL);
 		}
 	}
