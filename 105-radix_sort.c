@@ -79,10 +79,13 @@ int **allocate_array(size_t m, size_t size)
  */
 void radix_sort(int *array, size_t size)
 {
-	int **count_array = allocate_array(10, size);
+	int **count_array;
 	size_t i, j, k, significant_digit = 1, val;
 	int finished = 0;
 
+	if (!array || !size)
+		return;
+	count_array = allocate_array(10, size);
 	fill_2Darray(count_array, size);
 	while (!finished)
 	{
