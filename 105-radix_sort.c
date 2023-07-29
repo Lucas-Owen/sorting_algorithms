@@ -86,6 +86,8 @@ void radix_sort(int *array, size_t size)
 	if (!array || !size)
 		return;
 	count_array = allocate_array(10, size);
+	if (!count_array)
+		return;
 	fill_2Darray(count_array, size);
 	while (!finished)
 	{
