@@ -83,7 +83,7 @@ void radix_sort(int *array, size_t size)
 	size_t i, j, k, significant_digit = 1, val;
 	int finished = 0;
 
-	if (!array || !size)
+	if (!array || size <= 1)
 		return;
 	count_array = allocate_array(10, size);
 	if (!count_array)
